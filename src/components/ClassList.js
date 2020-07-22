@@ -1,0 +1,1 @@
+// filter by: time, date, duration, type, intensity, location
