@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import * as yup from 'yup';
 
+
 const formSchema = yup.object().shape({
     name: yup.string().required("Must input a name").min(2, "error: Must be a valid name"),
     email: yup.string().email("Must be a valid email address").required("Must input an email"),
@@ -91,8 +92,9 @@ const SignUP = () => {
                         placeholder="Name"
                         value={formState.name}
                         onChange={inputChange}
-                    />
+                        />
                     {errorState.name.length > 0 ? (<p className="error">{errorState.name}</p>) : null}
+                        </label>
                     <label>
                         Email
             <input
@@ -117,7 +119,6 @@ const SignUP = () => {
                         />
                         {errorState.password.length > 0 ? (<p className="error">{errorState.password}</p> ) : null}
                     </label>
-                </label>
                 <label htmlFor="role">
                     Are you signing up as a student or as an instructor?
         <select

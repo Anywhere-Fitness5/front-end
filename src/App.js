@@ -7,7 +7,7 @@ import Homepage from './components/Homepage'
 
 function App() {
   return (
-    <div>
+    <div className = "App">
       <h1>Anywhere Fitness</h1>
       <Route exact path="/" component= {Homepage}/>
       <Route path= "/signup" component= {SignUp}/>
