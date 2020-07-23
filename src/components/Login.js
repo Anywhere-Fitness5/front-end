@@ -70,7 +70,7 @@ class Login extends React.Component {
            />
             </label>
 
-          <button className="credential-button">Log In</button>
+          <button className="submitButton">Log In</button>
         </form>
       </div>
     );
