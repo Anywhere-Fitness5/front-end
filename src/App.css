@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -40,7 +41,29 @@
 form {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  max-width: 300px;
-  margin: 0 auto;
+  width: 60%;  
+  padding: 20%;
+  background-color: #fbeec1;
+}
+
+form .submitButton {
+  text-align: center;
+}
+
+form button {
+  width: 200px;
+  background-color: #659DBD;
+  border-radius: 8px;
+  padding: 5px;
+  color: white;
+}
+
+form button:hover {
+  color: #659dbd;
+  background-color: white;
+}
+
+.error {
+  font-size: 1.2rem;
+  color: red;
 }

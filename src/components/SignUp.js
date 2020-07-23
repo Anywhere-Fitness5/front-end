@@ -152,7 +152,10 @@ const SignUP = () => {
                         onChange={inputChange}
                     />
                 </label>
+                <div class= "submitButton">
                 <button>Submit</button>
+                </div>
+
             </form>
         </div>
     )
