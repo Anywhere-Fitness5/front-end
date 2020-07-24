@@ -1,8 +1,9 @@
 //instructors need additional authorization code
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import * as yup from 'yup';
+import {axiosWithAuth} from "../utils/axiosWithAuth";
 
 
 const formSchema = yup.object().shape({
@@ -14,14 +15,13 @@ const formSchema = yup.object().shape({
     terms: yup.boolean().oneOf([true], "Read and Agree terms of use")
 });
 
-const SignUP = () => {
+const SignUp = () => {
 
     const [formState, setFormState] = useState({
         name: "",
         email: "",
         password: "",
-        role: "",
-        instructorCode: "",
+        isInstructor: false,
         terms: false
     });
 
@@ -67,8 +67,8 @@ const SignUP = () => {
         formSchema.isValid(formState).then(valid => {
             if (valid) {
                 console.log("form submitted");
-                axios
-                    .post("https://reqres.in/api/users", formState)
+                axiosWithAuth()
+                    .post("https://anywhere-fitnesssite.herokuapp.com/users", formState)
                     .then(response => console.log(response))
                     .catch(err => console.log(err));
                 //props.addUser(formState);
@@ -124,25 +124,25 @@ const SignUP = () => {
         <select
                         name="role"
                         id="role"
-                        value={formState.role}
+                        value={formState.isInstructor}
                         onChange={inputChange}
                     >
-                        <option value=" ">Please select an option</option>
-                        <option value="Student">Student</option>
-                        <option value="Instructor">Instructor</option>
+                        <option value="">Please select an option</option>
+                        <option value={false}>Student</option>
+                        <option value={true}>Instructor</option>
                     </select>
                 </label>
-                <label>
+                {/* <label>
                     If you are an instructor please input your authorization code
             <input
                         type="password"
                         name="instructorCode"
                         id="instructorCode"
                         placeholder="Your Authorization Code"
-                        value={formState.instructorCode}
-                        onChange={inputChange}
+                        value={formState.isInstructor}
+                        onChange={instructorHandler}
                     />
-                </label>
+                </label> */}
                 <label htmlFor="terms">
                     Terms and Conditions
         <input
@@ -162,4 +162,4 @@ const SignUP = () => {
     )
 }
 
-export default SignUP
+export default SignUp;
