@@ -7,31 +7,31 @@ import {axiosWithAuth} from "../utils/axiosWithAuth";
 
 
 const formSchema = yup.object().shape({
-    name: yup.string().required("Must input a name").min(2, "error: Must be a valid name"),
+    username: yup.string().required("Must input a username").min(2, "error: Must be a valid name"),
     email: yup.string().email("Must be a valid email address").required("Must input an email"),
     password: yup.string().required("Must input a password"),
     role: yup.string(),
     instructorCode: yup.string(),
-    terms: yup.boolean().oneOf([true], "Read and Agree terms of use")
+    // terms: yup.boolean().oneOf([true], "Read and Agree terms of use")
 });
 
 const SignUp = () => {
 
     const [formState, setFormState] = useState({
-        name: "",
+        username: "",
         email: "",
         password: "",
         isInstructor: false,
-        terms: false
+        // terms: false
     });
 
     const [errorState, setErrorState] = useState({
-        name: "",
+        username: "",
         email: "",
         password: "",
         role: "",
         instructorCode: "",
-        terms: ""
+        // terms: ""
     })
 
     const validate = e => {
@@ -87,13 +87,13 @@ const SignUp = () => {
                     Name
             <input
                         type="text"
-                        name="name"
-                        id="name"
-                        placeholder="Name"
-                        value={formState.name}
+                        name="username"
+                        id="username"
+                        placeholder="Username"
+                        value={formState.username}
                         onChange={inputChange}
                         />
-                    {errorState.name.length > 0 ? (<p className="error">{errorState.name}</p>) : null}
+                    {errorState.username.length > 0 ? (<p className="error">{errorState.username}</p>) : null}
                         </label>
                     <label>
                         Email
@@ -143,7 +143,7 @@ const SignUp = () => {
                         onChange={instructorHandler}
                     />
                 </label> */}
-                <label htmlFor="terms">
+                {/* <label htmlFor="terms">
                     Terms and Conditions
         <input
                         type="checkbox"
@@ -152,7 +152,7 @@ const SignUp = () => {
                         checked={formState.terms}
                         onChange={inputChange}
                     />
-                </label>
+                </label> */}
                 <div class= "submitButton">
                 <button>Submit</button>
                 </div>
