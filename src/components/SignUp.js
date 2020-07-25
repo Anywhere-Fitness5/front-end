@@ -1,37 +1,37 @@
 //instructors need additional authorization code
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import * as yup from 'yup';
+import {axiosWithAuth} from "../utils/axiosWithAuth";
 
 
 const formSchema = yup.object().shape({
-    name: yup.string().required("Must input a name").min(2, "error: Must be a valid name"),
+    username: yup.string().required("Must input a username").min(2, "error: Must be a valid name"),
     email: yup.string().email("Must be a valid email address").required("Must input an email"),
     password: yup.string().required("Must input a password"),
     role: yup.string(),
     instructorCode: yup.string(),
-    terms: yup.boolean().oneOf([true], "Read and Agree terms of use")
+    // terms: yup.boolean().oneOf([true], "Read and Agree terms of use")
 });
 
-const SignUP = () => {
+const SignUp = () => {
 
     const [formState, setFormState] = useState({
-        name: "",
+        username: "",
         email: "",
         password: "",
-        role: "",
-        instructorCode: "",
-        terms: false
+        isInstructor: false,
+        // terms: false
     });
 
     const [errorState, setErrorState] = useState({
-        name: "",
+        username: "",
         email: "",
         password: "",
         role: "",
         instructorCode: "",
-        terms: ""
+        // terms: ""
     })
 
     const validate = e => {
@@ -67,8 +67,8 @@ const SignUP = () => {
         formSchema.isValid(formState).then(valid => {
             if (valid) {
                 console.log("form submitted");
-                axios
-                    .post("https://reqres.in/api/users", formState)
+                axiosWithAuth()
+                    .post("https://anywhere-fitnesssite.herokuapp.com/users", formState)
                     .then(response => console.log(response))
                     .catch(err => console.log(err));
                 //props.addUser(formState);
@@ -87,13 +87,13 @@ const SignUP = () => {
                     Name
             <input
                         type="text"
-                        name="name"
-                        id="name"
-                        placeholder="Name"
-                        value={formState.name}
+                        name="username"
+                        id="username"
+                        placeholder="Username"
+                        value={formState.username}
                         onChange={inputChange}
                         />
-                    {errorState.name.length > 0 ? (<p className="error">{errorState.name}</p>) : null}
+                    {errorState.username.length > 0 ? (<p className="error">{errorState.username}</p>) : null}
                         </label>
                     <label>
                         Email
@@ -124,26 +124,26 @@ const SignUP = () => {
         <select
                         name="role"
                         id="role"
-                        value={formState.role}
+                        value={formState.isInstructor}
                         onChange={inputChange}
                     >
-                        <option value=" ">Please select an option</option>
-                        <option value="Student">Student</option>
-                        <option value="Instructor">Instructor</option>
+                        <option value="">Please select an option</option>
+                        <option value={false}>Student</option>
+                        <option value={true}>Instructor</option>
                     </select>
                 </label>
-                <label>
+                {/* <label>
                     If you are an instructor please input your authorization code
             <input
                         type="password"
                         name="instructorCode"
                         id="instructorCode"
                         placeholder="Your Authorization Code"
-                        value={formState.instructorCode}
-                        onChange={inputChange}
+                        value={formState.isInstructor}
+                        onChange={instructorHandler}
                     />
-                </label>
-                <label htmlFor="terms">
+                </label> */}
+                {/* <label htmlFor="terms">
                     Terms and Conditions
         <input
                         type="checkbox"
@@ -152,7 +152,7 @@ const SignUP = () => {
                         checked={formState.terms}
                         onChange={inputChange}
                     />
-                </label>
+                </label> */}
                 <div class= "submitButton">
                 <button>Submit</button>
                 </div>
@@ -162,4 +162,4 @@ const SignUP = () => {
     )
 }
 
-export default SignUP
+export default SignUp;
