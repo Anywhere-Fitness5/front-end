@@ -6,8 +6,9 @@ import { axiosWithAuth } from "../utils/axiosWithAuth.js";
 class Login extends React.Component {
   state = {
     credentials: {
-      username: "testing",
-      password: "password",
+      username: "jose123",
+      password: "secret",
+      instructorCode: "123"
     },
   };
 
@@ -16,7 +17,10 @@ class Login extends React.Component {
     this.setState({
       credentials: {
         ...this.state.credentials,
-        [e.target.name]: e.target.value,
+        [e.target.username]: e.target.value,
+        [e.target.password]: e.target.value,
+        [e.target.password]: e.target.value
+
       },
     });
   };
@@ -26,12 +30,17 @@ class Login extends React.Component {
     e.preventDefault();
 
     axiosWithAuth()
-      .post("https://anywhere-fitnesssite.herokuapp.com/login", this.state.credentials)
+      .post("https://anywhere-fitnesssite.herokuapp.com/users/login", this.state.credentials)
       .then((res) => {
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("id", res.data.id);
-        this.props.history.push("/signup");
+        // localStorage.setItem("token", res.data.token);
+        // localStorage.setItem("id", res.data.id);
+        if(this.state.credentials.instructorCode == "123"){
+          this.props.history.push("/")
+        } else { 
+          this.props.history.push("/clientdashboard");
+        }
         console.log(res);
+        
       })
       .catch((err) => console.log(err.message));
   };
@@ -43,7 +52,7 @@ class Login extends React.Component {
         <h1 className="login-title">Log In</h1>
         <form onSubmit={this.login} className="credential-form">
           <input
-            type="username"
+            type="text"
             name="username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
@@ -64,9 +73,10 @@ class Login extends React.Component {
           <input
              type="password"
              name="instructorCode"
-             id="instructorCode"
-             placeholder="Your Authorization Code"
-             value= "placeholder"
+             value={this.state.credentials.instructorCode}
+             onChange={this.handleChange}
+             placeholder="InstructorCode"
+             className="credential-input"
            />
             </label>
 
