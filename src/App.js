@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {connect} from "react-redux";
 import './App.css';
 import SignUp from './components/SignUp'
@@ -22,7 +22,6 @@ function App(props) {
       <Switch>
         <PrivateRoute path="/client" component={ClientDashboard} />
         <PrivateRoute path="/instructor" component={InstructorDashboard}/>
-        <Route component={Login}/>
       </Switch>
     </div>
   );
