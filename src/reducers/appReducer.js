@@ -1,17 +1,9 @@
+import {createStore} from "redux";
+
 const initialState = {
     loading: false,
     error: "",
     classes: [],
-    class: {
-        name: "",
-        type: "",
-        startTime: "",
-        duration: "",
-        intensity: "",
-        location: "",
-        numRegistered: "",
-        maxClassSize: "",
-    },
     myClassList: [],
 };
 
@@ -41,28 +33,39 @@ export const appReducer = (state = initialState, action) => {
         case "ADD_CLASS":
             return {
                 ...state,
-            }
+                classes: [...state.classes, action.payload]
+            };
+
         case "EDIT_CLASS":
             return {
                 ...state,
-                
-            }
+
+            };
+
         case "DELETE_CLASS":
             return {
                 ...state,
-                
-            }
+                classes: state.classes.filter(el => {
+                    return !(el.id === action.payload.id)
+                })
+            };
+
         case "ADD_CLASSLIST":
             return {
                 ...state,
-                
-            }
+                myClassList: [...state.myClassList, action.payload]    
+            };
+
         case "DELETE_CLASSLIST":
             return {
                 ...state,
-                
+                myClassList: state.myClassList.filter(el => {
+                    return !(el.id === action.payload.id)
+                })    
             }
         default: 
             return state;
     }
 };
+
+export const store = createStore(appReducer);
