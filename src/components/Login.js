@@ -26,7 +26,7 @@ class Login extends React.Component {
     e.preventDefault();
 
     axiosWithAuth()
-      .post("https://anywhere-fitnesssite.herokuapp.com/login", this.state.credentials)
+      .post("https://anywhere-fitnesssite.herokuapp.com/users/login", this.state.credentials)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("id", res.data.id);
