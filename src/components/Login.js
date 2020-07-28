@@ -8,7 +8,7 @@ class Login extends React.Component {
     credentials: {
       username: "jose123",
       password: "secret",
-      instructorCode: "123"
+      instructorCode: "1234"
     },
   };
 
@@ -19,7 +19,7 @@ class Login extends React.Component {
         ...this.state.credentials,
         [e.target.username]: e.target.value,
         [e.target.password]: e.target.value,
-        [e.target.password]: e.target.value
+        [e.target.instructorCode]: e.target.value
 
       },
     });
@@ -37,7 +37,7 @@ class Login extends React.Component {
         if(this.state.credentials.instructorCode == "123"){
           this.props.history.push("/")
         } else { 
-          this.props.history.push("/clientdashboard");
+          this.props.history.push("/client");
         }
         console.log(res);
         

@@ -1,2 +1,14 @@
 import React from "react";
-import {BrowserRouter as Router} from "react-router-dom";
+import {Route, Redirect} from "react-router-dom";
+
+const InstructorDashboard = () =>{
+
+    return (
+        <div>
+            <h2>Instructors</h2>
+        </div>
+    )
+}
+
+
+export default InstructorDashboard
