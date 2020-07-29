@@ -80,8 +80,7 @@ const SignUp = () => {
 
     return (
         <div>
-            <Link path to="/">Back to Home</Link>
-            <h2>Sign Up Form</h2>
+            <h1>Sign Up Form</h1>
             <form onSubmit={formSubmit}>
                 <label>
                     Name
