@@ -34,8 +34,8 @@ class Login extends React.Component {
       .then((res) => {
         // localStorage.setItem("token", res.data.token);
         // localStorage.setItem("id", res.data.id);
-        if(this.state.credentials.instructorCode == "123"){
-          this.props.history.push("/")
+        if(this.state.credentials.instructorCode === "123"){
+          this.props.history.push("/instructor")
         } else { 
           this.props.history.push("/client");
         }

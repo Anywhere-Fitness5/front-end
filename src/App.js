@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {connect} from "react-redux";
+// import {connect} from "react-redux";
 import './App.css';
 import SignUp from './components/SignUp'
 import Homepage from './components/Homepage'
@@ -9,8 +9,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import ClientDashboard from "./components/ClientDashboard";
 import InstructorDashboard from "./components/InstructorDashboard";
 
-function App(props) {
-  const state = props;
+function App() {
 
   return (
     <div className = "App">
