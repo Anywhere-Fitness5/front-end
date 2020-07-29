@@ -6,11 +6,13 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer'
 
 ReactDOM.render(
   <Router>
     <NavBar />
     <App />
+    <Footer />
   </Router>,
   document.getElementById('root')
 );

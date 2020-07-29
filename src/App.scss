@@ -11,19 +11,18 @@ $NavHoverTX:  $mainBlue;
 
 $krona-one: 'Krona One', sans-serif;
 
+html {
+  background-color: $mainBlue;
+}
+
 .App {
   text-align: center;
   background-color:$mainBlue;
 }
 
-.App-link {
-  color: $mainBlue;
-}
-
 h1 {
   color: $mainCream;
 }
-
 
 .NavBar {
   display: flex;
@@ -36,6 +35,29 @@ h1 {
     font-family: $krona-one;
     font-weight: normal;
   }
+
+  .links {
+    display: flex;
+    align-items: center;
+  }
+  
+  a {
+    color: $mainCream;
+    padding: 5px;
+    text-decoration: none; 
+  }
+
+  a:hover {
+    color: $NavHoverTX;
+    background-color: $NavHoverBG;
+  }
+}
+
+.Footer {
+  display: flex;
+  justify-content: center;
+  background-color: $mainBlue;
+  padding: 10px;
 
   .links {
     display: flex;
