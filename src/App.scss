@@ -1,82 +1,62 @@
+@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
+
+//VARIABLES
+$krona-one: 'Krona One', sans-serif;
+
 $mainGreen: #8D8741;
 $mainBlue: #659DBD;
 $mainSkin: #DAAD86;
 $mainBrown: #BC986A;
 $mainCream: #fbeec1;
-
 $NavHoverBG: $mainCream;
 $NavHoverTX:  $mainBlue;
-
-@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
-
-$krona-one: 'Krona One', sans-serif;
-
+//MIXINS
+@mixin quickLinks {
+  .links {
+    display: flex;
+    align-items: center;
+  }
+    a {
+    color: $mainCream;
+    padding: 5px;
+    text-decoration: none; 
+  }
+a:hover {
+    color: $NavHoverTX;
+    background-color: $NavHoverBG;
+  }
+}
+//STYLING
 html {
   background-color: $mainBlue;
 }
-
 .App {
   text-align: center;
   background-color:$mainBlue;
 }
-
 h1 {
   color: $mainCream;
 }
-
 .NavBar {
   display: flex;
   justify-content: space-between;
   background-color: $mainBlue;
   padding: 10px;
-
   .title {
     align-self: center;
     font-family: $krona-one;
     font-weight: normal;
   }
-
-  .links {
-    display: flex;
-    align-items: center;
-  }
-  
-  a {
-    color: $mainCream;
-    padding: 5px;
-    text-decoration: none; 
-  }
-
-  a:hover {
-    color: $NavHoverTX;
-    background-color: $NavHoverBG;
-  }
+  @include quickLinks;
 }
-
 .Footer {
   display: flex;
   justify-content: center;
   background-color: $mainBlue;
   padding: 10px;
-
-  .links {
-    display: flex;
-    align-items: center;
-  }
-  
-  a {
-    color: $mainCream;
-    padding: 5px;
-    text-decoration: none; 
-  }
-
-  a:hover {
-    color: $NavHoverTX;
-    background-color: $NavHoverBG;
-  }
+  @include quickLinks;
 }
-
-/* for SignUp form */
+//FORMS
 form {
   display: flex;
   flex-direction: column;
@@ -85,11 +65,9 @@ form {
   height: 60vh; 
   padding: 5%;
   background-color: $mainCream;
-
   .submitButton {
     text-align: center;
   }
-
   button {
     width: 200px;
     background-color:$mainSkin;
@@ -97,23 +75,19 @@ form {
     padding: 5px;
     color: $mainGreen;
   }
-
   button:hover {
     color: $mainCream;
     background-color: $mainGreen;
   }
-
   label {
     padding: 10px;
     font-weight: bold;
     color: $mainGreen; 
   }
-
   input {
     max-width: 600px;
   }
 }
-
 .error {
   font-size: 1.2rem;
   color: red;
