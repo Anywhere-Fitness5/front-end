@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from "react-router-dom";
-import {Provider} from "react-redux";
-import './index.css';
+import { BrowserRouter as Router} from 'react-router-dom';
+import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {store} from "./reducers/appReducer";
+import NavBar from './components/NavBar';
+import Footer from './components/Footer'
 
 ReactDOM.render(
-  <Provider store={store}>
-  <BrowserRouter>
+  <Router>
+    <NavBar />
     <App />
-    </BrowserRouter>
-  </Provider>,
+    <Footer />
+  </Router>,
+  
   document.getElementById('root')
 );
 
