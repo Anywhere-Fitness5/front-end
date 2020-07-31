@@ -29,7 +29,7 @@ export const AddClass = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        axiosWithAuth.put(`https://anywhere-fitnesssite.herokuapp.com/classes/:id`, formState)
+        axiosWithAuth.post(`https://anywhere-fitnesssite.herokuapp.com/classes/:id`, formState)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
