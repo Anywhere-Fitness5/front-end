@@ -1,79 +1,128 @@
-// Name, type, start time, duration, intensity
-// Location, num registered, max class size
-import React, { useState } from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth.js";
+import React, {useState} from "react";
+import {axiosWithAuth} from "../utils/axiosWithAuth";
 
-const AddClass = (props) => {
-  const [name, setName] = useState("");
-  const [type, setType] = useState("");
-  const [location, setLocation] = useState("");
+const AddClass = () => {
+    const [formState, setFormState] = useState({
+        name: "", //string
+        type: "", //string
+        startTime: "", //string
+        duration: 0, //num
+        intensity: "", ///string
+        location: "", ///string
+        numberOfRegisteredAttendees: 0, //num
+        maxClassSize: 0 //num
+    });
 
-  // handle name changes
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
+    const changeHandler = e => {
+        e.persist();
+        let value = e.target.value;
 
-  // handle name changes
-  const handleType = (e) => {
-    setType(e.target.value);
-  };
+        // if (e.target.name === 'duration' || e.target.name === 'numberOfRegisteredAttendees' || e.target.name === 'maxClassSize' ) {
+        //     value = parseInt(value, 10);
+        // }
 
-  // handle email changes
-  const handleLocation = (e) => {
-    setLocation(e.target.value);
-  };
+        setFormState({
+            ...formState,
+            [e.target.name]: value
+        });
+    };
 
-  // handle submit to add
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axiosWithAuth()
-      .post("https://anywhere-fitnesssite.herokuapp.com/classes/", {
-        name: name,
-        type: type,
-        location: location,
-      })
-      .then(console.log("good"))
-      .catch((err) => console.log(err));
+    const handleSubmit = e => {
+        e.preventDefault();
+        axiosWithAuth.put(`https://anywhere-fitnesssite.herokuapp.com/classes/:id`, id)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    };
 
-    setName("");
-    setType("");
-    setLocation("");
-  };
+    return (
+        <form id="edit-form" onSubmit={handleSubmit}>
+            <h3>Edit Class</h3>
 
-  return (
-    <div className="add-workout">
+            <label htmlFor='name'>Name: </label>
+            <input 
+                type='text'
+                name='name'
+                onChange={changeHandler}
+                placeholder={formState.name}
+                value={formState.name}    
+            />
+            <br/>
 
-      <form onSubmit={handleSubmit} className={`add-container`}>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleName}
-          placeholder="Workout Name"
-          className={`add-input`}
-        />
+            <label htmlFor='type'>Type: </label>
+            <input 
+                type='text'
+                name='type'
+                onChange={changeHandler}
+                placeholder={formState.type}
+                value={formState.type}    
+            />
+            <br/>
 
-        <input
-          type="text"
-          name="type"
-          value={type}
-          onChange={handleType}
-          placeholder="Type"
-          className={`add-input`}
-        />
+            <label htmlFor='startTime'>Start Time: </label>
+            <input 
+                type='text'
+                name='startTime'
+                onChange={changeHandler}
+                placeholder={formState.startTime}
+                value={formState.startTime}    
+            />
+            <br/>
 
-        <input
-          type="text"
-          name="location"
-          value={location}
-          onChange={handleLocation}
-          placeholder="Location"
-          className={`add-input`}
-        />
-        <button className="add-button">Add Class</button>
-      </form>
-    </div>
-  );
+            <label htmlFor='duration'>Duration (minutes): </label>
+            <input 
+                type='number'
+                name='duration'
+                onChange={changeHandler}
+                placeholder={formState.duration} 
+                value={formState.duration}    
+            />
+            <br/>
+
+            <label htmlFor='intensity'>Intensity: </label>
+            <input 
+                type='text'
+                name='intensity'
+                onChange={changeHandler}
+                placeholder={formState.intensity} 
+                value={formState.intensity}    
+            />
+            <br/>
+
+            <label htmlFor='location'>Location: </label>
+            <input 
+                type='text'
+                name='location'
+                onChange={changeHandler}
+                placeholder={formState.duration} 
+                value={formState.duration}    
+            />
+            <br/>
+
+            <label htmlFor='numberOfRegisteredAttendees'>Number of Restistered Attendees: </label>
+            <input 
+                type='number'
+                name='numberOfRegisteredAttendees'
+                onChange={changeHandler}
+                placeholder={formState.numberOfRegisteredAttendees}
+                value={formState.numberOfRegisteredAttendees}    
+            />
+            <br/>
+
+            <label htmlFor='maxClassSize'>Max Class Size: </label>
+            <input 
+                type='number'
+                name='maxClassSize'
+                onChange={changeHandler}
+                placeholder={formState.maxClassSize} 
+                value={formState.maxClassSize}    
+            />
+            <br/>
+
+
+            <button type='submit'>Submit</button>
+
+        </form>
+    );
 };
 
 export default AddClass;
