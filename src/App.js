@@ -6,10 +6,6 @@ import Login from './components/Login'
 import AboutUs from './components/AboutUs'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 // import {connect} from "react-redux";
-import './App.css';
-import SignUp from './components/SignUp'
-import Homepage from './components/Homepage'
-import Login from './components/Login'
 import PrivateRoute from "./components/PrivateRoute";
 import ClientDashboard from "./components/ClientDashboard";
 import InstructorDashboard from "./components/InstructorDashboard";

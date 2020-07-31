@@ -17,10 +17,7 @@ class Login extends React.Component {
     this.setState({
       credentials: {
         ...this.state.credentials,
-        [e.target.username]: e.target.value,
-        [e.target.password]: e.target.value,
-        [e.target.instructorCode]: e.target.value
-
+        [e.target.name]: e.target.value,
       },
     });
   };
