@@ -29,8 +29,8 @@ const SignUp = () => {
         username: "",
         email: "",
         password: "",
-        role: "",
-        instructorCode: "",
+        // role: "",
+        isInstructor: "",
         // terms: ""
     })
 
@@ -54,11 +54,11 @@ const SignUp = () => {
 
     const inputChange = e => {
         e.persist();
-        console.log("input changed", e.target.value, e.target.checked);
+        // console.log("input changed", e.target.value, e.target.checked);
         validate(e);
-        let value =
-            e.target.type === "checkbox" ? e.target.checked : e.target.value;
-        setFormState({ ...formState, [e.target.name]: value });
+        // let value =
+        //     e.target.type === "checkbox" ? e.target.checked : e.target.value;
+        setFormState({ ...formState, [e.target.name]: e.target.value });
     }
 
     const formSubmit = e => {
@@ -68,7 +68,7 @@ const SignUp = () => {
             if (valid) {
                 console.log("form submitted");
                 axiosWithAuth()
-                    .post("https://anywhere-fitnesssite.herokuapp.com/users", formState)
+                    .post("https://anywhere-fitnesssite.herokuapp.com/users/users", formState)
                     .then(response => console.log(response))
                     .catch(err => console.log(err));
                 //props.addUser(formState);

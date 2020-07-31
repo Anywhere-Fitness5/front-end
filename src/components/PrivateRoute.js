@@ -1,26 +1,37 @@
 import React, { Component } from "react";
 import {Route, Redirect} from "react-router-dom";
+import cookie from "cookie";
 
-const PrivateRoute = ({component: Component, ...rest}) => {
+  const PrivateRoute = ({ component: Component, ...rest }) => {
+
+    const checkAuth = () => {
+        const cookies = cookie.parse(document.cookie);
+        if (cookies.id_token) {
+          return true;
+        }
+        return false;
+      };
+
     return (
-        <Route 
-            {...rest}
-
-            render={(props) => {
-                if (localStorage.getItem("token")) {
-                    return <Component {...props} />;
-                } else {
-                    return <Redirect to="/login"/>;
-                }
+        <Route
+      {...rest}
+      render={props =>
+        checkAuth() === true ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/",
+              state: { from: props.location }
             }}
-        
-        
-        
-        />
+          />
+        )
+      }
+    />
+    );
 
-    )
+    };
+    
 
 
-};
-
-export default PrivateRoute;
+  export default PrivateRoute;
