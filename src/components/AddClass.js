@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
 
-const AddClass = () => {
+export const AddClass = () => {
     const [formState, setFormState] = useState({
         name: "", //string
         type: "", //string
@@ -29,14 +29,14 @@ const AddClass = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        axiosWithAuth.put(`https://anywhere-fitnesssite.herokuapp.com/classes/:id`, id)
+        axiosWithAuth.put(`https://anywhere-fitnesssite.herokuapp.com/classes/:id`, formState)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
 
     return (
         <form id="edit-form" onSubmit={handleSubmit}>
-            <h3>Edit Class</h3>
+            <h3>Add Class</h3>
 
             <label htmlFor='name'>Name: </label>
             <input 
