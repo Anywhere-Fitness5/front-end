@@ -1,29 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {Route, Redirect} from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth.js";
 import AddClass from "./AddClass";
 
-
 class ClientDashboard extends React.Component {
-
-
-state = {
-    "classes": [
+  state = {
+    classes: [
       {
-        "id": 1,
-        "name": "workout",
-        "type": "yoga",
-        "startTime": "7-11-2020 7AM",
-        "duration": 30,
-        "intensity": "high",
-        "location": "florida",
-        "numberOfRegisteredAttendees": 25,
-        "maxClassSize": 50
-      }
-    ]
+        id: 1,
+        name: "workout",
+        type: "yoga",
+        startTime: "7-11-2020 7AM",
+        duration: 30,
+        intensity: "high",
+        location: "florida",
+        numberOfRegisteredAttendees: 25,
+        maxClassSize: 50,
+      },
+    ],
   };
-  
 
   componentDidMount() {
     console.log("hello");
@@ -33,18 +29,16 @@ state = {
       .then((res) => {
         console.log(res.data);
         this.setState({
-          state: res.data.state,
+          classes: res.data.classes,
         });
       })
       .catch((err) => console.log(err));
   }
 
-
   // render students with features from above
   render() {
     return (
       <div>
-
         <h1 className="workout-list">Workout List</h1>
         <AddClass />
         <br></br>
@@ -53,7 +47,7 @@ state = {
             <div key={classes.id}>
               <div>
                 <h2>
-                  {classes.name} 
+                  {classes.name}
                   <br></br>
                   <br></br>
                   {classes.type}
@@ -63,6 +57,9 @@ state = {
                   {classes.duration}
                   <br></br>
                   {classes.intensity}
+                  <br></br>
+                  {classes.location}
+
                   <br></br>
                   {classes.numberOfRegisteredAttendees}
                   <br></br>
@@ -77,4 +74,4 @@ state = {
   }
 }
 
-export default ClientDashboard
+export default ClientDashboard;
