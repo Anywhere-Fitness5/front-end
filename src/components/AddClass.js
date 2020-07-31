@@ -21,32 +21,32 @@ const AddClass = (props) => {
     setName(e.target.value);
   };
 
-  // handle name changes
+  // handle type changes
   const handleType = (e) => {
     setType(e.target.value);
   };
-  // handle email changes
+  // handle time changes
   const handleTime = (e) => {
     setStartTime(e.target.value);
   };
-  // handle email changes
+  // handle duration changes
   const handleDuration = (e) => {
     setDuration(e.target.value);
   };
-  // handle email changes
+  // handle intensity changes
   const handleIntensity = (e) => {
     setIntensity(e.target.value);
   };
-  // handle email changes
+  // handle registered changes
   const handleRegistered = (e) => {
     setNumberOfRegisteredAttendees(e.target.value);
   };
-  // handle email changes
+  // handle maxclass changes
   const handleMax = (e) => {
     setMaxClassSize(e.target.value);
   };
 
-  // handle email changes
+  // handle location changes
   const handleLocation = (e) => {
     setLocation(e.target.value);
   };
