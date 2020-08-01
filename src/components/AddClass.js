@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth.js";
 
-const AddClass = (props) => {
+export const AddClass = () => {
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [startTime, setStartTime] = useState("");
