@@ -40,8 +40,7 @@ class ClientDashboard extends React.Component {
     return (
       <div>
         <h1 className="workout-list">Workout List</h1>
-        <AddClass />
-        <br></br>
+        <br/>
         <div className={`workouts`}>
           {this.state.classes.map((classes) => (
             <div key={classes.id}>
