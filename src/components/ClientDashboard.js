@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Route, Redirect } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth.js";
 import AddClass from "./AddClass";
+import ClassCard from "./ClassCard";
 
 class ClientDashboard extends React.Component {
   state = {
@@ -43,31 +44,32 @@ class ClientDashboard extends React.Component {
         <br/>
         <div className={`workouts`}>
           {this.state.classes.map((classes) => (
-            <div key={classes.id}>
+            <div className={'workoutcards'} key={classes.id}>
               <div>
-                <h2>
-                  {classes.name}
+                <p>
+                  <h1 className="workoutTitle"><span className="workoutTitleSpan">Workout Name: </span>{classes.name}</h1>
                   <br></br>
-                  <br></br>
-                  {classes.type}
-                  <br></br>
-                  {classes.startTime}
-                  <br></br>
-                  {classes.duration}
-                  <br></br>
-                  {classes.intensity}
-                  <br></br>
-                  {classes.location}
+                 
+                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Class Type: </span>{classes.type}</h2>
+                
+                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Start Time: </span>{classes.startTime}</h2>
+                 
+                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Duration: </span>{classes.duration}</h2>
+               
+                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Intensity: </span>{classes.intensity}</h2>
+          
+                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Location: </span>{classes.location}</h2>
 
-                  <br></br>
-                  {classes.numberOfRegisteredAttendees}
-                  <br></br>
-                  {classes.maxClassSize}
-                </h2>
+                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Currently Enrolled: </span>{classes.numberOfRegisteredAttendees}</h2>
+                
+                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Max Class Size: </span>{classes.maxClassSize}</h2>
+                </p>
               </div>
+              
             </div>
           ))}
         </div>
+        <br/>
       </div>
     );
   }
