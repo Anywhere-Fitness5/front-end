@@ -34,9 +34,11 @@ html {
   text-align: center;
   background-color:$mainBlue;
 }
-h1 {
+h1, h2 {
   color: $mainCream;
+  font-weight: normal;
 }
+
 .NavBar {
   display: flex;
   justify-content: space-between;
@@ -91,4 +93,33 @@ form {
 .error {
   font-size: 1.2rem;
   color: red;
+}
+
+.workouts {
+
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+  border: dotted black 1px;
+}
+
+.workoutcards { 
+  background-color: rgba(164, 164, 255, 0.795);
+  border: solid black 1px;
+  padding: 1%;
+  margin: 1%;
+  border-radius: 10px;
+}
+
+.workoutTitleSpan {
+  color: #3487f7;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+}
+.workoutDetailsSpan{
+  color: rgba(0,0,0,.6);
+  font-family: 'Raleway', sans-serif;
+  font-size: 100%;
+  font-weight: normal;
 }
