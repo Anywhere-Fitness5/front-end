@@ -20,6 +20,22 @@ class ClientDashboard extends React.Component {
         maxClassSize: 50,
       },
     ],
+    classList: [],
+  };
+
+  deleteClassList (workout) {
+    this.setState({
+      classList: (this.state.classList.filter(() => !workout))
+    })
+    console.log("Deleted!", this.state.classList);
+  };
+
+  addClassList(fitnessClass){
+    this.setState({
+      classList: [...this.state.classList, fitnessClass]
+      
+    })
+    console.log("Added!", this.state.classList);
   };
 
   componentDidMount() {
@@ -46,7 +62,7 @@ class ClientDashboard extends React.Component {
           {this.state.classes.map((classes) => (
             <div className={'workoutcards'} key={classes.id}>
               <div>
-                <p>
+                <>
                   <h1 className="workoutTitle"><span className="workoutTitleSpan">Workout Name: </span>{classes.name}</h1>
                   <br></br>
                  
@@ -63,7 +79,10 @@ class ClientDashboard extends React.Component {
                   <h2 className="workoutDetails"><span className="workoutDetailsSpan">Currently Enrolled: </span>{classes.numberOfRegisteredAttendees}</h2>
                 
                   <h2 className="workoutDetails"><span className="workoutDetailsSpan">Max Class Size: </span>{classes.maxClassSize}</h2>
-                </p>
+
+                  <button className="delete-button" onClick={() => {this.deleteClassList(classes)}}>Delete</button>
+                  <button className="add-button" onClick={() => {this.addClassList(classes)}}>Add</button>
+                </>
               </div>
               
             </div>

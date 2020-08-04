@@ -7,9 +7,10 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 class InstructorDashboard extends React.Component {
   state = {
-    classList: [
+    isEditing: false,
+    classes: [
       {
-        id: 1,
+        // id: 1,
         name: "workout",
         type: "yoga",
         startTime: "7-11-2020 7AM",
@@ -37,8 +38,6 @@ class InstructorDashboard extends React.Component {
   }
 
   deleteClass (e) {
-    e.preventDefault();
-
     axiosWithAuth()
       .delete(`https://anywhere-fitnesssite.herokuapp.com/classes/${e.id}`)
       .then((res) => {
@@ -58,9 +57,9 @@ class InstructorDashboard extends React.Component {
         <AddClass />
   
         <div className="workouts-list">
-          {this.state.classList.map((fitnessClass) => (
+          {Array.from(this.state.classes).map((fitnessClass) => (
             
-            <div className="workouts" key={fitnessClass.id}>
+            <div className="workoutcards" key={fitnessClass.id}>
               <h3>{fitnessClass.name}</h3>
               <p>Type: {fitnessClass.type}</p>
               <p>Start Time: {fitnessClass.startTime}</p>
@@ -70,8 +69,8 @@ class InstructorDashboard extends React.Component {
               <p>Number of Attendees: {fitnessClass.numberOfRegisteredAttendees}</p>
               <p>Max Class Size: {fitnessClass.maxClassSize}</p>
   
-              <button className="delete-button" onClick={this.deleteClass}>Delete</button>
-              {/* <button className="edit-button" onClick={() => push(`/edit-class/${fitnessClass.id}`)}>Edit</button> */}
+              <button className="delete-button" onClick={this.deleteClass(fitnessClass)}>Delete</button>
+              {/* <button className="edit-button" onClick={() => ()}>Edit</button> */}
   
             </div>
             ))}

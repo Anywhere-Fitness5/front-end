@@ -7,7 +7,7 @@ import {EditClass} from "./EditClass";
 function ClassCard(props){
     const {push} = useHistory();
 
-    const fitnessClass = props.classes.find(
+    const fitnessClass = props.workouts.find(
         el => `${el.id}` === props.match.params.id
     );
 
