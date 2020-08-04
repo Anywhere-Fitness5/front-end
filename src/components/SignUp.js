@@ -62,6 +62,7 @@ const SignUp = () => {
     }
 
     const formSubmit = e => {
+        e.preventDefault();
 
         formSchema.isValid(formState).then(valid => {
             if (valid) {
