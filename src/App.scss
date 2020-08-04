@@ -98,9 +98,9 @@ form {
 .workouts {
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: auto;
-  width: 50%;
+  width: 100%;
   padding: 5%;
   border: dotted black 1px;
 }
@@ -111,10 +111,30 @@ form {
   padding: 1%;
   margin: 1%;
   border-radius: 10px;
+    button{
+      display: inline-block;
+      background-color: #7b38d8;
+      border-radius: 10px;
+      border: 4px double #cccccc;
+      color: $mainCream;
+      text-align: center;
+      font-size: 1rem;
+      padding: 1%;
+      width: 100%;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 1%;
+      position: relative;
+  
+  
+    }
+    button:hover {
+      background-color: #f7c2f9;
+    }
 }
 
 .workoutTitleSpan {
-  color: #3487f7;
+  color: #7b38d8;
     font-family: 'Raleway', sans-serif;
     font-weight: 200;
 }
@@ -129,4 +149,36 @@ form {
   height: 100%;
   width: 100%;
   margin: 5%;
+}
+
+
+.addedworkouts{
+  background-color: rgba(75, 75, 122, 0.795);
+  border: solid white 1px;
+  padding: 1%;
+  margin: 1%;
+  border-radius: 10px;
+    button{
+      display: inline-block;
+      background-color: #553088;
+      border-radius: 10px;
+      border: 4px double #cccccc;
+      color: $mainCream;
+      text-align: center;
+      font-size: 1rem;
+      padding: 1%;
+      width: 100%;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 1%;
+      position: relative;
+  
+  
+    }
+    button:hover {
+      background-color: #9f7aa0;
+    }
+    p{
+      color: $mainCream;
+    }
 }

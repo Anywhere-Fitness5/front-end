@@ -78,7 +78,7 @@ class ClientDashboard extends React.Component {
                 
                   <p className="workoutDetails"><span className="workoutDetailsSpan">Max Class Size: </span>{classes.maxClassSize}</p>
 
-                  <button className="add-button" onClick={() => {this.addClassList(classes)}}>Add</button>
+                  <button className="add-button" onClick={() => {this.addClassList(classes)}}>Add Workout to session</button>
               
             </div>
           ))}
@@ -87,19 +87,19 @@ class ClientDashboard extends React.Component {
         <div className="classList">
           <h2>My Workouts</h2>
           {this.state.classList.map((fitnessClass) => (
-            <div className='workoutcards'>
+            <div className='addedworkouts'>
               <h3>{fitnessClass.name}</h3>
-              <p className="workoutDetails"><span className="workoutDetailsSpan">Class Type: </span>{fitnessClass.type}</p>
+              <p className="workoutDetails" ><span className="workoutDetailsSpan">Class Type: </span>{fitnessClass.type}</p>
             
-              <p className="workoutDetails"><span className="workoutDetailsSpan">Start Time: </span>{fitnessClass.startTime}</p>
+              <p className="workoutDetails" ><span className="workoutDetailsSpan">Start Time: </span>{fitnessClass.startTime}</p>
               
-              <p className="workoutDetails"><span className="workoutDetailsSpan">Duration: </span>{fitnessClass.duration}</p>
+              <p className="workoutDetails" ><span className="workoutDetailsSpan">Duration: </span>{fitnessClass.duration}</p>
             
               <p className="workoutDetails"><span className="workoutDetailsSpan">Intensity: </span>{fitnessClass.intensity}</p>
       
               <p className="workoutDetails"><span className="workoutDetailsSpan">Location: </span>{fitnessClass.location}</p>
 
-              <button className="delete-button" onClick={() => {this.deleteClassList(fitnessClass)}}>Mark Session Complete</button>
+              <button className="delete-button" onClick={() => {this.deleteClassList(fitnessClass)}}>Mark All Workouts Complete!</button>
             </div> 
           ))}
         </div>
