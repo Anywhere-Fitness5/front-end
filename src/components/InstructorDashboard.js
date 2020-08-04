@@ -1,16 +1,14 @@
-import React, {useState, useEffect} from "react";
-import { Route, Redirect } from "react-router-dom";
-import {useHistory} from "react-router-dom";
+import React from "react";
 import { EditClass } from "./EditClass";
 import {AddClass} from "./AddClass";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 class InstructorDashboard extends React.Component {
   state = {
-    isEditing: false,
+    // isEditing: false,
     classes: [
       {
-        // id: 1,
+        id: 1,
         name: "workout",
         type: "yoga",
         startTime: "7-11-2020 7AM",
@@ -69,7 +67,7 @@ class InstructorDashboard extends React.Component {
               <p>Number of Attendees: {fitnessClass.numberOfRegisteredAttendees}</p>
               <p>Max Class Size: {fitnessClass.maxClassSize}</p>
   
-              <button className="delete-button" onClick={this.deleteClass(fitnessClass)}>Delete</button>
+              {/* <button className="delete-button" onClick={this.deleteClass(fitnessClass)}>Delete</button> */}
               {/* <button className="edit-button" onClick={() => ()}>Edit</button> */}
   
             </div>

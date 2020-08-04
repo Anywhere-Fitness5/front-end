@@ -101,6 +101,7 @@ form {
   flex-direction: column;
   margin: auto;
   width: 50%;
+  padding: 5%;
   border: dotted black 1px;
 }
 
@@ -122,4 +123,10 @@ form {
   font-family: 'Raleway', sans-serif;
   font-size: 100%;
   font-weight: normal;
+}
+
+.add-container form {
+  height: 100%;
+  width: 100%;
+  margin: 5%;
 }

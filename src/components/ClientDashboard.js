@@ -61,34 +61,49 @@ class ClientDashboard extends React.Component {
         <div className={`workouts`}>
           {this.state.classes.map((classes) => (
             <div className={'workoutcards'} key={classes.id}>
-              <div>
-                <>
-                  <h1 className="workoutTitle"><span className="workoutTitleSpan">Workout Name: </span>{classes.name}</h1>
+                  <h2 className="workoutTitle"><span className="workoutTitleSpan">Workout Name: </span>{classes.name}</h2>
                   <br></br>
                  
-                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Class Type: </span>{classes.type}</h2>
+                  <p className="workoutDetails"><span className="workoutDetailsSpan">Class Type: </span>{classes.type}</p>
                 
-                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Start Time: </span>{classes.startTime}</h2>
+                  <p className="workoutDetails"><span className="workoutDetailsSpan">Start Time: </span>{classes.startTime}</p>
                  
-                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Duration: </span>{classes.duration}</h2>
+                  <p className="workoutDetails"><span className="workoutDetailsSpan">Duration: </span>{classes.duration}</p>
                
-                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Intensity: </span>{classes.intensity}</h2>
+                  <p className="workoutDetails"><span className="workoutDetailsSpan">Intensity: </span>{classes.intensity}</p>
           
-                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Location: </span>{classes.location}</h2>
+                  <p className="workoutDetails"><span className="workoutDetailsSpan">Location: </span>{classes.location}</p>
 
-                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Currently Enrolled: </span>{classes.numberOfRegisteredAttendees}</h2>
+                  <p className="workoutDetails"><span className="workoutDetailsSpan">Currently Enrolled: </span>{classes.numberOfRegisteredAttendees}</p>
                 
-                  <h2 className="workoutDetails"><span className="workoutDetailsSpan">Max Class Size: </span>{classes.maxClassSize}</h2>
+                  <p className="workoutDetails"><span className="workoutDetailsSpan">Max Class Size: </span>{classes.maxClassSize}</p>
 
-                  <button className="delete-button" onClick={() => {this.deleteClassList(classes)}}>Delete</button>
                   <button className="add-button" onClick={() => {this.addClassList(classes)}}>Add</button>
-                </>
-              </div>
               
             </div>
           ))}
         </div>
         <br/>
+        <div className="classList">
+          <h2>My Workouts</h2>
+          {this.state.classList.map((fitnessClass) => (
+            <div className='workoutcards'>
+              <h3>{fitnessClass.name}</h3>
+              <p className="workoutDetails"><span className="workoutDetailsSpan">Class Type: </span>{fitnessClass.type}</p>
+            
+              <p className="workoutDetails"><span className="workoutDetailsSpan">Start Time: </span>{fitnessClass.startTime}</p>
+              
+              <p className="workoutDetails"><span className="workoutDetailsSpan">Duration: </span>{fitnessClass.duration}</p>
+            
+              <p className="workoutDetails"><span className="workoutDetailsSpan">Intensity: </span>{fitnessClass.intensity}</p>
+      
+              <p className="workoutDetails"><span className="workoutDetailsSpan">Location: </span>{fitnessClass.location}</p>
+
+              <button className="delete-button" onClick={() => {this.deleteClassList(fitnessClass)}}>Delete</button>
+            </div> 
+          ))}
+        </div>
+
       </div>
     );
   }
