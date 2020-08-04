@@ -76,7 +76,7 @@ class ClientDashboard extends React.Component {
 
                   <p className="workoutDetails"><span className="workoutDetailsSpan">Currently Enrolled: </span>{classes.numberOfRegisteredAttendees}</p>
                 
-                  <p className="workoutDetails"><span className="workoutDetailsSpan">Max Class Size: </span>{classes.maxClassSize}</p>
+                  {/* <p className="workoutDetails"><span className="workoutDetailsSpan">Max Class Size: </span>{classes.maxClassSize}</p> */}
 
                   <button className="add-button" onClick={() => {this.addClassList(classes)}}>Add Workout to session</button>
               
