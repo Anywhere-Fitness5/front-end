@@ -25,7 +25,6 @@ export const AddClass = () => {
 
   // handle submit to add
   const handleSubmit = (e) => {
-    e.preventDefault();
     axiosWithAuth()
       .post("https://anywhere-fitnesssite.herokuapp.com/classes", formState)
       .then(console.log("good"), setFormState({
