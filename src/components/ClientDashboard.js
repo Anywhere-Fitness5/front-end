@@ -99,7 +99,7 @@ class ClientDashboard extends React.Component {
       
               <p className="workoutDetails"><span className="workoutDetailsSpan">Location: </span>{fitnessClass.location}</p>
 
-              <button className="delete-button" onClick={() => {this.deleteClassList(fitnessClass)}}>Delete</button>
+              <button className="delete-button" onClick={() => {this.deleteClassList(fitnessClass)}}>Mark Session Complete</button>
             </div> 
           ))}
         </div>

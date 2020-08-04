@@ -22,6 +22,7 @@ class InstructorDashboard extends React.Component {
   };
 
   componentDidMount() {
+    
     console.log("hello");
     console.log(this.state.classes);
     axiosWithAuth()
